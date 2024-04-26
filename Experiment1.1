@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+public class project {
+    public static void main(String[] args) {
+        int[] empId = { 1001, 1002, 1003, 1004, 1005, 1006, 1007 };
+        String[] empName = { "Ashish", "Sushma", "Rahul", "Chahat", "Ranjan", "Suman", "Tanmay" };
+        String[] joinDate = { "01-04-2009", "23-08-2012", "03-03-2021", "04-04-2021", "05-05-2021", "06-07-2021", "25-12-2021" };
+        String[] depName = { "Managment", "Accounting", "R&D ", "Marketing", "IT department", "Sales ", "Front Desk" };
+        int[] basic = { 41000, 51000, 61000, 71000, 98000, 20000, 4000 };
+        int[] hra = { 1000, 2000, 3000, 4000, 5000, 2900, 8000 };
+        int[] it = { 5500, 4400, 3300, 2200, 1100, 5500, 1100 };
+        char[] desCode = { 'm', 'k', 'e', 'c', 's', 'a', 'r' };
+        int[] da = new int[7];
+        String[] des = new String[7];
+
+        for (int i = 0; i < 7; i++) {
+            switch (desCode[i]) {
+                case 'm':
+                    des[i] = "Manager ";
+                    da[i] = 10000;
+                    break;
+                case 's':
+                    des[i] = "Service Engineer";
+                    da[i] = 6000;
+                    break;
+                case 'a':
+                    des[i] = "Analyst ";
+                    da[i] = 5000;
+                    break;
+                case 'r':
+                    des[i] = "Manager ";
+                    da[i] = 10000;
+                    break;
+                case 'k':
+                    des[i] = "Clerk ";
+                    da[i] = 2000;
+                    break;
+                case 'e':
+                    des[i] = "Engineer ";
+                    da[i] = 8000;
+                    break;
+                case 'c':
+                    des[i] = "Commerical Mangaer";
+                    da[i] = 9000;
+                    break;
+                default:
+                    des[i] = "Receptionist ";
+                    da[i] = 4000;
+                    break;
+            }
+        }
+
+        int[] sal = new int[7];
+        for (int i = 0; i < 7; i++) {
+            sal[i] = basic[i] + hra[i] + da[i] - it[i];
+        }
+
+        System.out.print("Enter the Employee ID whose Salary is to be Calculated: ");
+        Scanner s = new Scanner(System.in);
+        int x = s.nextInt();
+        boolean found = false;
+
+        System.out.println("\nEmp ID\t\tEmp Name\tDepartment\t\tDesignation\t\tSalary\n");
+        for (int i = 0; i < 7; i++) {
+            if (x == empId[i]) {
+                System.out.println(empId[i] + "\t\t" + empName[i] + "\t\t" + depName[i] + "\t\t" + des[i] + "\t\t " + sal[i]);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println("Invalid Id");
+        }
+    }
+}
